@@ -189,6 +189,22 @@
 
 ## ⑤ 成果展示
 
+### 小程序截图（真机测试）
+
+**首页 — JD 输入与提交**
+
+![输入JD](./screenshots/01-home-input.jpg)
+![选择类别](./screenshots/02-home-category.jpg)
+![输入背景](./screenshots/03-home-background.jpg)
+
+**AI 解读过程与报告展示**
+
+![解读中](./screenshots/04-loading.jpg)
+![报告内容](./screenshots/05-report-content.jpg)
+![差距分析](./screenshots/06-report-gap.jpg)
+![数据来源](./screenshots/07-report-source.jpg)
+![复制功能](./screenshots/08-report-copy.jpg)
+
 ### 项目文件结构
 
 ```
@@ -241,7 +257,7 @@ project-jd-truth/
 
 ### 代码仓库
 
-> TODO: 补充 GitHub 仓库链接
+> GitHub: https://github.com/fire-gpu/project-jd-truth
 
 ---
 
