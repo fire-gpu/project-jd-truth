@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>当boss说真话 — AI 招聘 JD 深度解读</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#FF2D55;--rose-soft:rgba(255,45,85,.08);--rose-mid:rgba(255,45,85,.15);
+  --purple:#8B5CF6;--purple-soft:rgba(139,92,246,.08);
+  --bg:#F8F8FC;--card:#FFFFFF;--text:#111128;--sub:#555570;--muted:#9999AA;
+  --shadow:0 1px 3px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --shadow-lg:0 4px 12px rgba(0,0,0,.06),0 16px 48px rgba(0,0,0,.08);
+  --radius:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans SC',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:10;padding:0 48px;height:56px;display:flex;justify-content:space-between;align-items:center;background:rgba(248,248,252,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.04)}
+nav .logo{font-weight:800;font-size:16px;background:linear-gradient(135deg,var(--rose),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav .links{display:flex;gap:8px}
+nav .links a{padding:6px 14px;border-radius:8px;font-size:13px;font-weight:500;color:var(--sub);text-decoration:none;transition:all .2s}
+nav .links a:hover{color:var(--rose);background:var(--rose-soft)}
+
+/* HERO */
+.hero{padding:140px 48px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,var(--rose-soft) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,var(--purple-soft) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:720px;position:relative;z-index:1}
+.hero .badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;background:var(--rose-soft);font-size:12px;font-weight:600;color:var(--rose);margin-bottom:28px}
+.hero h1{font-size:clamp(40px,7vw,64px);font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:20px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--rose),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:var(--sub);max-width:560px;line-height:1.9;margin-bottom:16px}
+
+/* DEMO STATUS — more prominent */
+.demo-status{display:flex;align-items:flex-start;gap:10px;padding:14px 18px;border-radius:12px;background:linear-gradient(135deg,rgba(255,45,85,.06),rgba(139,92,246,.06));border:1px solid var(--rose-mid);margin-bottom:32px;font-size:14px;color:var(--sub);line-height:1.8}
+.demo-status .status-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.demo-status strong{color:var(--rose);font-weight:700}
+
+/* CTA BANNER — for job direction */
+.cta-banner{background:linear-gradient(135deg,var(--rose),var(--purple));border-radius:var(--radius);padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:48px;box-shadow:0 8px 32px rgba(255,45,85,.2)}
+.cta-banner .cta-text{color:#fff}
+.cta-banner .cta-text h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.cta-banner .cta-text p{font-size:14px;opacity:.9;line-height:1.7}
+.cta-banner .cta-btns{display:flex;gap:10px;flex-shrink:0}
+.cta-banner .btn{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px)}
+.cta-banner .btn:hover{background:rgba(255,255,255,.3)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all .25s}
+.btn-primary{background:linear-gradient(135deg,var(--rose),#E0244A);color:#fff;box-shadow:0 4px 16px rgba(255,45,85,.3)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,45,85,.35)}
+.btn-secondary{background:var(--card);color:var(--text);border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow)}
+.btn-secondary:hover{border-color:var(--rose);color:var(--rose)}
+.btn-lg{padding:16px 36px;font-size:16px;border-radius:12px;font-weight:700}
+
+/* HERO LINKS — extra prominent */
+.hero-links{display:flex;gap:16px;flex-wrap:wrap}
+.hero-links .btn{font-size:17px;padding:16px 36px;border-radius:14px;font-weight:800;letter-spacing:-.3px}
+
+/* SECTIONS */
+section{padding:80px 48px}
+.wrap{max-width:1000px;margin:0 auto}
+.section-num{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--rose);margin-bottom:8px}
+h2{font-size:32px;font-weight:800;letter-spacing:-1px;margin-bottom:10px;line-height:1.25}
+h2 .thin{font-weight:300;color:var(--sub)}
+.desc{font-size:15px;color:var(--sub);max-width:560px;line-height:1.8}
+
+/* PROBLEM */
+.problems{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.p-card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.03);transition:all .3s}
+.p-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.p-card .icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+.p-card:nth-child(1) .icon{background:var(--rose-soft)}
+.p-card:nth-child(2) .icon{background:var(--purple-soft)}
+.p-card:nth-child(3) .icon{background:rgba(245,158,11,.08)}
+.p-card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.p-card p{font-size:13px;color:var(--sub);line-height:1.75}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.stat{background:var(--card);border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.03)}
+.stat .num{font-family:'DM Mono',monospace;font-size:32px;font-weight:500;background:linear-gradient(135deg,var(--rose),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+.stat .lbl{font-size:13px;color:var(--sub);font-weight:500}
+
+/* DEMO */
+.demo-section{background:linear-gradient(180deg,var(--bg),rgba(255,45,85,.02) 50%,var(--bg))}
+.demos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.demos img{width:100%;aspect-ratio:9/19.5;object-fit:cover;border-radius:14px;display:block;box-shadow:var(--shadow-lg);border:2px solid var(--card);transition:transform .3s}
+.demos img:hover{transform:translateY(-4px)}
+.demo-note{margin-top:20px;padding:16px 20px;border-radius:12px;background:var(--rose-soft);border:1px solid var(--rose-mid);font-size:13px;color:var(--rose);line-height:1.7}
+.demo-note strong{font-weight:700}
+
+/* AI STORY */
+.ai-story{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.ai-card{background:var(--card);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.03)}
+.ai-card h3{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.ai-card h3 .ai-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--purple));flex-shrink:0}
+.ai-card p{font-size:14px;color:var(--sub);line-height:1.8;margin-bottom:12px}
+.ai-card ul{list-style:none;padding:0}
+.ai-card li{padding:8px 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:13px;color:var(--sub);line-height:1.7;display:flex;gap:10px}
+.ai-card li:last-child{border:none}
+.ai-card li strong{color:var(--text);font-weight:600;white-space:nowrap}
+.ai-card .highlight{color:var(--rose);font-weight:600}
+
+/* P1 CARD — full width */
+.p1-card{background:var(--card);border-radius:var(--radius);padding:28px 32px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.03);margin-top:20px}
+.p1-card h3{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.p1-card h3 .ai-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--purple));flex-shrink:0}
+.p1-card p{font-size:14px;color:var(--sub);line-height:1.8;margin-bottom:8px}
+.p1-card ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.p1-card li{padding:6px 0;font-size:13px;color:var(--sub);line-height:1.7;display:flex;gap:8px}
+.p1-card li strong{color:var(--text);font-weight:600;white-space:nowrap}
+
+/* TECH */
+.techs{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.techs span{padding:7px 16px;border-radius:8px;font-size:13px;font-weight:500;color:var(--sub);background:var(--card);border:1px solid rgba(0,0,0,.05);box-shadow:0 1px 2px rgba(0,0,0,.03)}
+
+/* PHASES */
+.phases{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.phase{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+.phase:last-child{border:none}
+.phase .ph{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--rose);min-width:28px;flex-shrink:0;padding-top:2px}
+.phase .pt{font-size:13px;color:var(--sub);line-height:1.7}
+.phase .pt strong{color:var(--text);font-weight:600}
+
+/* FOOTER */
+footer{padding:48px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}
+footer p{font-size:13px;color:var(--muted);line-height:2}
+footer a{color:var(--rose);text-decoration:none;font-weight:500}
+footer a:hover{text-decoration:underline}
+.footer-links{margin-top:16px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.footer-links a{font-size:16px;font-weight:700;padding:10px 24px;border-radius:10px;background:var(--card);border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow);transition:all .2s}
+.footer-links a:hover{border-color:var(--rose);color:var(--rose);transform:translateY(-1px)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  nav .links{display:none}
+  .hero{padding:120px 20px 60px}
+  section{padding:48px 20px}
+  .problems,.demos,.stats{grid-template-columns:repeat(2,1fr)}
+  .phases,.ai-story{grid-template-columns:1fr}
+  .cta-banner{flex-direction:column;text-align:center}
+  .hero-links .btn{font-size:15px;padding:14px 28px}
+  .p1-card ul{grid-template-columns:1fr}
+  h2{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">当boss说真话</div>
+  <div class="links">
+    <a href="#demo">演示</a>
+    <a href="https://github.com/fire-gpu/project-jd-truth" target="_blank">GitHub</a>
+    <a href="https://forum.trae.cn/t/topic/11658" target="_blank">参赛帖</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">Hello AI 科技致善 · 命题三</div>
+    <h1>让每一份 JD<br>都说<em>真话</em></h1>
+    <p>用 AI + 真实从业者经验，将招聘黑话翻译为求职者能看懂的结构化报告。不是简历优化，不是面试模拟——解决求职链路最上游的信息不对称。</p>
+    <div class="demo-status">
+      <span class="status-icon">🚧</span>
+      <div><strong>当前为 Demo 状态</strong> — 微信代码审核已通过，因个人主体不支持 AI 深度合成服务类目暂未上架。如 TRAE 大赛或合作方有对接需求，将持续迭代开发并推进上线。</div>
+    </div>
+    <div class="hero-links">
+      <a href="https://github.com/fire-gpu/project-jd-truth" target="_blank" class="btn btn-primary btn-lg">⭐ GitHub 仓库</a>
+      <a href="https://forum.trae.cn/t/topic/11658" target="_blank" class="btn btn-secondary btn-lg">📋 参赛帖</a>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-num">01</div>
+    <h2>不是能力不够，<span class="thin">是不知道自己够不够</span></h2>
+    <p class="desc">毕业 0-2 年的求职者在 BOSS 直聘看到感兴趣的岗位，却面临三个核心困惑。</p>
+    <div class="problems">
+      <div class="p-card">
+        <div class="icon">🔍</div>
+        <h3>岗位到底干嘛？</h3>
+        <p>"负责产品全生命周期管理"实际可能就是写需求文档 + 画原型。招聘方用高大上的话包装，求职者根本看不懂。</p>
+      </div>
+      <div class="p-card">
+        <div class="icon">📐</div>
+        <h3>我到底差什么？</h3>
+        <p>"熟悉 React 全家桶"到底什么水平？自己的 Vue 经验算不算？差距有多大？没人告诉你。</p>
+      </div>
+      <div class="p-card">
+        <div class="icon">🛤️</div>
+        <h3>我该怎么补？</h3>
+        <p>不知道学什么、做项目还是刷题、补多久才能达到要求。信息不对称导致自我淘汰。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-num">02</div>
+    <h2>AI + 从业者经验，<span class="thin">结构化 JD 深度解读</span></h2>
+    <p class="desc">粘贴 JD → 选择岗位类别 → 可选填背景 → 获得包含 6 个维度的深度报告。</p>
+    <div class="stats">
+      <div class="stat"><div class="num">6</div><div class="lbl">报告维度</div></div>
+      <div class="stat"><div class="num">12</div><div class="lbl">经验数据</div></div>
+      <div class="stat"><div class="num">21/25</div><div class="lbl">Prompt 评分</div></div>
+      <div class="stat"><div class="num">¥0</div><div class="lbl">月运行成本</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="demo-section">
+  <div class="wrap">
+    <div class="section-num">03</div>
+    <h2>真机测试<span class="thin"> · 微信小程序 Demo</span></h2>
+    <p class="desc">原生开发，玫红色系 UI，3 个页面覆盖完整用户流程。</p>
+    <div class="demos">
+      <img src="screenshots/home.jpg" alt="首页">
+      <img src="screenshots/report-content.jpg" alt="报告">
+      <img src="screenshots/report-gap.jpg" alt="差距分析">
+      <img src="screenshots/history.jpg" alt="历史">
+    </div>
+    <div class="demo-note">
+      <strong>Demo 状态说明：</strong>微信代码审核已通过，真机 Preview 可正常运行。因微信平台政策限制（个人主体不支持 AI 深度合成服务类目），暂无法正式上架。如 TRAE 大赛或合作方有对接需求，将持续迭代开发并推进上线。
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-num">04</div>
+    <h2>全程 SOLO 开发<span class="thin"> · AI 做产品的完整实践</span></h2>
+    <p class="desc">作为 AI PM 方向的求职者，用 SOLO（AI 编程助手）从零完成整个项目，展示 AI 辅助产品开发的完整能力。</p>
+
+    <!-- P1 -->
+    <div class="p1-card">
+      <h3><span class="ai-dot"></span> P1 产品定义：用 AI 做产品调研</h3>
+      <p>没有写一行代码之前，先用 SOLO 完成产品定义——验证需求是否存在、竞品怎么做、目标用户是谁。</p>
+      <ul>
+        <li><strong>用户画像：</strong>用 SOLO 分析 BOSS 直聘 JD 样本，定义 3 类目标用户（应届/转行/跳槽）</li>
+        <li><strong>竞品分析：</strong>SOLO 辅助调研 16 个竞品，发现"JD 解读"是空白赛道</li>
+        <li><strong>需求验证：</strong>21 条 JD 样本分析，确认"岗位真实情况"是最大信息缺口</li>
+        <li><strong>产品设计：</strong>6 维度报告结构（岗位真相/日常/差距/行动/薪资/风险）由 SOLO 协助设计</li>
+      </ul>
+    </div>
+
+    <!-- P2 & P3 -->
+    <div class="ai-story">
+      <div class="ai-card">
+        <h3><span class="ai-dot"></span> P2 知识库构建：解决了什么？</h3>
+        <p>AI 解读 JD 的质量取决于注入的"真实经验"质量。直接让 AI 生成经验会得到泛化描述，缺乏具体信息。</p>
+        <ul>
+          <li><strong>问题：</strong>AI 生成的经验太泛化，没有具体日常任务和时间占比</li>
+          <li><strong>解决：</strong>在 Prompt 中加入"必须包含具体任务 + 时间占比 + JD 描述 vs 真实情况对比"的硬约束</li>
+          <li><strong>问题：</strong>纯关键词匹配无法捕捉语义相似的经验（如"需求分析"和"用户调研"）</li>
+          <li><strong>解决：</strong>实现关键词（权重 0.6）+ Jaccard 语义相似度（权重 0.4）的混合检索</li>
+          <li><strong>质量保障：</strong>用 SOLO 对知识库做正反方辩论式 Review，识别出数据为 AI 合成、缺乏反直觉洞察等问题</li>
+        </ul>
+      </div>
+      <div class="ai-card">
+        <h3><span class="ai-dot"></span> P3 Prompt 工程：解决了什么？</h3>
+        <p>Prompt 是产品的"大脑"，需要反复迭代才能达到可用质量。4 个版本，每个版本解决一个核心问题。</p>
+        <ul>
+          <li><strong>V1→V2：</strong>8 个章节导致输出被截断 → 精简为 6 个章节 + "绝不能中断输出"强制指令</li>
+          <li><strong>V2→V3：</strong>AI 会编造 JD 中未提及的考核指标 → 加入 5 条幻觉边界规则（禁止编造来源/数字/标注不确定性）</li>
+          <li><strong>V3→V3.1：</strong>Prompt 模板占 90% 字符量，生成速度慢 → 删除冗余"输出规则"段落，Prompt 减少 28%</li>
+          <li><strong>质量评估：</strong>5 维度量表（真实性/完整性/具体性/可执行性/差异化），2 个测试用例均获 <span class="highlight">21/25</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-num">05</div>
+    <h2>技术实现 <span class="thin">& 开发历程</span></h2>
+    <div class="techs">
+      <span>微信小程序（原生）</span>
+      <span>微信云函数 Node.js 18</span>
+      <span>智谱 GLM-4-Flash</span>
+      <span>RAG 知识库</span>
+      <span>Prompt V3.1</span>
+      <span>Markdown 渲染</span>
+    </div>
+    <div class="phases">
+      <div class="phase"><span class="ph">P1</span><span class="pt"><strong>产品定义</strong> — 用户画像、21 条 JD 样本、16 个竞品分析（SOLO 辅助）</span></div>
+      <div class="phase"><span class="ph">P2</span><span class="pt"><strong>知识库</strong> — 6 岗位 × 2 条经验，混合检索，辩论式审查</span></div>
+      <div class="phase"><span class="ph">P3</span><span class="pt"><strong>Prompt</strong> — V1→V3.1 四轮迭代，幻觉边界控制</span></div>
+      <div class="phase"><span class="ph">P4</span><span class="pt"><strong>开发</strong> — 云函数 + 小程序，自实现 Markdown 渲染</span></div>
+      <div class="phase"><span class="ph">P5</span><span class="pt"><strong>测试</strong> — 8 边界用例，2519 字端到端报告验证</span></div>
+      <div class="phase"><span class="ph">P6</span><span class="pt"><strong>部署</strong> — 迁移云开发，解决 8 个环境问题，0 成本</span></div>
+      <div class="phase"><span class="ph">P7</span><span class="pt"><strong>审核</strong> — 代码审核通过，个人主体不支持 AI 类目</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>「当boss说真话」— AI 帮你听懂招聘 JD 的潜台词</p>
+  <p style="margin-top:4px;">Hello AI 科技致善 · 命题三：帮助大学生跨越求职迷茫</p>
+  <div class="footer-links">
+    <a href="https://github.com/fire-gpu/project-jd-truth" target="_blank">⭐ GitHub 仓库</a>
+    <a href="https://forum.trae.cn/t/topic/11658" target="_blank">📋 参赛帖</a>
+  </div>
+</footer>
+</body>
+</html>
