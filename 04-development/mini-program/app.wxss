@@ -1,0 +1,142 @@
+/**
+ * JD 说真话 - 全局样式
+ * 主色调：玫红色系 #FF2D55
+ * 设计风格：年轻有网感、高级审美、卡片式布局
+ */
+
+/* ==================== 全局基础样式 ==================== */
+
+page {
+  background-color: #FFF8FA;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC',
+    'Microsoft YaHei', sans-serif;
+  font-size: 28rpx;
+  color: #333348;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+/* ==================== 通用工具类 ==================== */
+
+/* 页面容器 */
+.page-container {
+  padding: 32rpx;
+  min-height: 100vh;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: #FFFFFF;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 24rpx rgba(255, 45, 85, 0.06);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+/* 主按钮 */
+.btn-primary {
+  background: linear-gradient(135deg, #FF2D55, #FF6B81);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  padding: 24rpx 0;
+  text-align: center;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+.btn-primary:active {
+  opacity: 0.9;
+  transform: scale(0.98);
+}
+
+.btn-primary.disabled {
+  background: #FFB3C1;
+  color: #FFFFFF;
+}
+
+/* 标题文字 */
+.title-lg {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1A1A2E;
+  line-height: 1.4;
+}
+
+.title-md {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+  line-height: 1.5;
+}
+
+/* 正文文字 */
+.text-body {
+  font-size: 28rpx;
+  color: #333348;
+  line-height: 1.6;
+}
+
+/* 辅助文字 */
+.text-secondary {
+  font-size: 24rpx;
+  color: #8888A0;
+  line-height: 1.5;
+}
+
+/* 主题色文字 */
+.text-primary {
+  color: #FF2D55;
+}
+
+/* ==================== 加载状态 ==================== */
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.loading-text {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #8888A0;
+}
+
+/* ==================== 空状态 ==================== */
+
+.empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+  opacity: 0.3;
+  color: #FF2D55;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #8888A0;
+}
+
+/* ==================== 分割线 ==================== */
+
+.divider {
+  height: 1rpx;
+  background-color: #FFE0E8;
+  margin: 24rpx 0;
+}

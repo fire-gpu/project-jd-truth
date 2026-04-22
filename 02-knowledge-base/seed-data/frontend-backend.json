@@ -1,0 +1,657 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-04-17",
+  "categories": [
+    {
+      "category_id": "frontend",
+      "category_name": "前端开发",
+      "jobs": [
+        {
+          "job_id": "frontend-junior",
+          "job_title": "初级前端开发工程师",
+          "experience_level": "0-2年",
+          "experiences": [
+            {
+              "id": "fe_exp_001",
+              "keywords": {
+                "job_titles": ["前端开发", "前端工程师", "Web前端", "H5开发", "前端开发工程师", "Web开发", "初级前端", "前端实习生"],
+                "tech_stack": ["JavaScript", "React", "Vue", "HTML5", "CSS3", "TypeScript", "ES6+", "Git"],
+                "skills": ["页面开发", "组件开发", "接口对接", "Code Review", "Bug修复", "单元测试", "样式还原", "响应式适配"],
+                "tools": ["Figma", "Chrome DevTools", "Webpack", "Vite", "Ant Design", "Element Plus", "Jest", "Vitest"],
+                "concepts": ["响应式布局", "浏览器兼容", "性能优化", "前端架构", "工程化", "组件化", "状态管理", "RESTful API"]
+              },
+              "work_content": {
+                "daily_tasks": [
+                  {
+                    "task": "根据设计稿还原页面和编写业务组件",
+                    "time_ratio": "50%",
+                    "detail": "使用 React/Vue 按照设计师提供的 Figma/Sketch 稿还原页面布局，包括表单、列表、详情页、弹窗等常见业务组件。需要处理响应式适配和浏览器兼容性问题。"
+                  },
+                  {
+                    "task": "对接后端 API 并完成数据渲染",
+                    "time_ratio": "20%",
+                    "detail": "根据后端提供的 Swagger/Apifox 接口文档，使用 axios 或 fetch 调用接口，处理请求参数、响应数据格式化、错误码处理和 loading 状态管理。"
+                  },
+                  {
+                    "task": "修复 Bug 和处理线上问题",
+                    "time_ratio": "15%",
+                    "detail": "处理测试同学提的 Bug 单和线上用户反馈的问题，包括样式错位、交互异常、接口报错等。需要使用 Chrome DevTools 定位问题，有时需要和后端联调排查。"
+                  },
+                  {
+                    "task": "参与 Code Review 和团队协作",
+                    "time_ratio": "10%",
+                    "detail": "每周参与 1-2 次团队 Code Review，学习高级工程师的代码写法；参加迭代计划会和每日站会，汇报进度和阻塞项。"
+                  },
+                  {
+                    "task": "编写和维护单元测试",
+                    "time_ratio": "5%",
+                    "detail": "为核心业务组件编写 Jest/Vitest 单元测试，覆盖率要求通常在 60% 以上。新人阶段主要写简单的渲染测试和工具函数测试。"
+                  }
+                ],
+                "jd_vs_reality": [
+                  {
+                    "jd_says": "负责产品前端架构设计和技术选型",
+                    "reality": "初级工程师基本不会参与架构决策，框架（React/Vue）、状态管理（Redux/Pinia）、构建工具（Vite/Webpack）都是团队已经定好的。你的任务是按照现有架构规范写代码。",
+                    "gap_level": "high"
+                  },
+                  {
+                    "jd_says": "具备良好的 UI/UX 设计能力",
+                    "reality": "绝大多数公司有专职设计师，前端不需要做设计决策。但你需要有基本的审美判断力，能发现设计稿中不合理的地方并主动和设计师沟通。",
+                    "gap_level": "medium"
+                  },
+                  {
+                    "jd_says": "负责前端性能优化",
+                    "reality": "初级阶段很少独立做性能优化，主要是遵循团队已有的性能规范（如图片懒加载、组件按需引入）。真正的性能优化（首屏时间、Lighthouse 评分提升）通常由中级以上工程师负责。",
+                    "gap_level": "medium"
+                  }
+                ]
+              },
+              "core_skills": {
+                "must_have": [
+                  {
+                    "skill": "JavaScript (ES6+)",
+                    "level": "熟练",
+                    "why": "日常开发的核心语言，面试必考闭包、原型链、异步编程、事件循环等基础知识",
+                    "how_to_verify": "能独立完成中等复杂度的交互逻辑，理解 Promise/async-await，能手写防抖节流等常见工具函数"
+                  },
+                  {
+                    "skill": "React 或 Vue 框架",
+                    "level": "熟练",
+                    "why": "几乎所有前端岗位都要求掌握至少一个主流框架，实际工作每天都在用",
+                    "how_to_verify": "能独立完成一个包含表单、列表、路由的完整页面开发，理解组件生命周期和状态管理"
+                  },
+                  {
+                    "skill": "HTML5 / CSS3",
+                    "level": "熟练",
+                    "why": "页面还原的基础，Flexbox 和 Grid 布局是日常高频使用的技能",
+                    "how_to_verify": "能像素级还原设计稿，处理常见布局问题（居中、等高、响应式），了解 BEM 命名规范"
+                  },
+                  {
+                    "skill": "Git 版本控制",
+                    "level": "熟练",
+                    "why": "团队协作必备工具，每天都要用 git pull/commit/push/rebase",
+                    "how_to_verify": "能熟练使用分支管理（feature/fix 分支），理解 merge 和 rebase 的区别，能处理基本冲突"
+                  },
+                  {
+                    "skill": "调试能力（Chrome DevTools）",
+                    "level": "熟练",
+                    "why": "修 Bug 是日常工作的重要部分，快速定位问题直接影响工作效率",
+                    "how_to_verify": "能使用 Elements 面板排查样式问题，使用 Network 面板分析接口请求，使用 Console 面板调试 JS 逻辑"
+                  }
+                ],
+                "nice_to_have": [
+                  {
+                    "skill": "TypeScript",
+                    "level": "了解",
+                    "why": "越来越多团队在迁移到 TS，掌握 TS 是加分项，但初级岗位通常不硬性要求",
+                    "how_to_verify": "能看懂 TS 代码，会基本的类型定义（interface/type），理解泛型的基本用法"
+                  },
+                  {
+                    "skill": "前端工程化工具（Webpack/Vite）",
+                    "level": "了解",
+                    "why": "理解构建流程有助于排查打包问题，但初级阶段很少需要修改构建配置",
+                    "how_to_verify": "知道 entry/output/loader/plugin 的概念，能看懂 vite.config.ts 或 webpack.config.js"
+                  },
+                  {
+                    "skill": "CSS 预处理器（Sass/Less）",
+                    "level": "了解",
+                    "why": "很多项目使用预处理器，入职后学习成本不高",
+                    "how_to_verify": "会使用变量、嵌套、mixin 等基本特性"
+                  }
+                ]
+              },
+              "entry_advice": [
+                {
+                  "action": "精通一个主流框架（React 或 Vue）",
+                  "priority": 1,
+                  "estimated_time": "2-3 个月",
+                  "resources": ["React 官方文档（react.dev）", "Vue 官方文档（cn.vuejs.org）", "完成一个包含增删改查的全栈项目"],
+                  "why": "面试必考，实际工作每天都在用。建议选一个深入学，不要两个都浅尝辄止"
+                },
+                {
+                  "action": "夯实 JavaScript 基础",
+                  "priority": 2,
+                  "estimated_time": "1-2 个月",
+                  "resources": ["《JavaScript 高级程序设计》（红宝书）", "MDN Web Docs", "LeetCode 简单-中等难度 JS 题"],
+                  "why": "面试中 JS 基础题占比最高，闭包、原型链、事件循环、异步编程是高频考点"
+                },
+                {
+                  "action": "准备 2-3 个高质量项目作品",
+                  "priority": 3,
+                  "estimated_time": "1-2 个月",
+                  "resources": ["GitHub 开源项目参考", "掘金社区项目实战文章", "部署到 Vercel/Netlify 获得在线链接"],
+                  "why": "校招/实习面试中项目经验是重要加分项，有在线预览链接的项目比纯代码仓库更有说服力"
+                },
+                {
+                  "action": "学习基本的网络和浏览器知识",
+                  "priority": 4,
+                  "estimated_time": "2 周",
+                  "resources": ["《图解 HTTP》", "浏览器渲染原理相关博客", "Chrome DevTools 实操练习"],
+                  "why": "面试常考 HTTP 缓存、跨域、HTTPS、浏览器渲染流程等知识，工作中排查问题也用得上"
+                }
+              ],
+              "meta": {
+                "source_type": "ai_synthesized_interview",
+                "source_detail": "AI 基于公开社区信息（知乎、V2EX、脉脉等）综合生成的模拟访谈数据，非真实访谈",
+                "contributor": null,
+                "quality_score": 4.5,
+                "review_status": "approved",
+                "data_verification": {
+                  "is_verified": false,
+                  "verified_by": null,
+                  "verified_at": null,
+                  "verification_note": "AI 合成数据，待真实从业者验证后升级为已验证状态"
+                },
+                "created_at": "2026-04-17",
+                "updated_at": "2026-04-17"
+              }
+            },
+            {
+              "id": "fe_exp_002",
+              "keywords": {
+                "job_titles": ["前端开发", "前端工程师", "Web前端", "H5开发", "前端开发工程师", "Web开发", "前端实习生", "前端助理"],
+                "tech_stack": ["JavaScript", "React", "Vue", "HTML5", "CSS3", "TypeScript", "Sass", "Less"],
+                "skills": ["后台系统开发", "CRUD开发", "接口联调", "需求沟通", "跨端兼容", "技术文档编写", "Mock数据开发", "组件库使用"],
+                "tools": ["Ant Design Pro", "Element Plus", "Apifox", "Mock.js", "Chrome DevTools", "Vite", "Webpack", "Notion"],
+                "concepts": ["前后端分离", "组件化开发", "响应式设计", "浏览器兼容", "前端工程化", "设计系统", "敏捷开发", "CI/CD"]
+              },
+              "work_content": {
+                "daily_tasks": [
+                  {
+                    "task": "开发和管理后台系统页面",
+                    "time_ratio": "45%",
+                    "detail": "大部分初级前端的工作集中在内部管理系统（Admin Dashboard），使用 Ant Design Pro / Element Plus 等组件库开发 CRUD 页面。工作内容重复性较高，但对熟悉框架和组件化思维很有帮助。"
+                  },
+                  {
+                    "task": "与产品经理和设计师沟通需求",
+                    "time_ratio": "15%",
+                    "detail": "参与需求评审会，理解产品需求文档（PRD），对不明确的需求点提出疑问。实际工作中需求变更频繁，需要学会管理预期和沟通边界。"
+                  },
+                  {
+                    "task": "联调和接口对接",
+                    "time_ratio": "20%",
+                    "detail": "后端接口经常延期或字段变更，联调占据大量时间。需要学会用 Mock 数据先行开发，减少对后端进度的依赖。Apifox/Mock.js 是常用工具。"
+                  },
+                  {
+                    "task": "处理跨端兼容和样式问题",
+                    "time_ratio": "12%",
+                    "detail": "不同浏览器（尤其是 Safari 和低版本 Chrome）的样式差异、移动端适配问题、以及第三方组件库样式覆盖是常见的头疼问题。"
+                  },
+                  {
+                    "task": "技术文档编写和知识沉淀",
+                    "time_ratio": "8%",
+                    "detail": "新人通常需要编写组件使用文档、开发环境搭建指南等。使用 Notion/飞书文档/Confluence 记录踩坑经验和解决方案。"
+                  }
+                ],
+                "jd_vs_reality": [
+                  {
+                    "jd_says": "与产品和设计团队紧密合作，打造极致用户体验",
+                    "reality": "实际情况是需求经常变更，设计稿有时不完整或不符合前端实现逻辑。初级前端更多是被动接受需求，很少有机会从用户体验角度提出改进建议。沟通成本比想象中高很多。",
+                    "gap_level": "high"
+                  },
+                  {
+                    "jd_says": "参与技术分享和开源贡献",
+                    "reality": "大部分初级工程师没有时间也没有能力做开源贡献。技术分享通常是中级以上工程师的事。初级阶段更重要的是把分配的任务做好，而不是追求技术影响力。",
+                    "gap_level": "medium"
+                  },
+                  {
+                    "jd_says": "熟悉 Node.js，能独立搭建开发工具链",
+                    "reality": "除非是全栈岗位，否则初级前端很少写 Node.js。开发工具链（脚手架、CI/CD）通常是团队统一配置好的，新人只需要会用就行。",
+                    "gap_level": "low"
+                  }
+                ]
+              },
+              "core_skills": {
+                "must_have": [
+                  {
+                    "skill": "React 或 Vue 及其生态",
+                    "level": "熟练",
+                    "why": "框架是找工作的硬门槛，不会框架基本过不了简历筛选",
+                    "how_to_verify": "能用 React+Redux 或 Vue+Pinia 独立完成一个包含登录、列表、表单、权限控制的完整项目"
+                  },
+                  {
+                    "skill": "JavaScript 基础（ES6+）",
+                    "level": "熟练",
+                    "why": "面试中 JS 基础是区分候选人水平的关键，也是日常开发中排查问题的根基",
+                    "how_to_verify": "能解释清楚 var/let/const 区别、this 指向、Promise 原理、事件委托等常见面试题"
+                  },
+                  {
+                    "skill": "CSS 布局和样式处理",
+                    "level": "熟练",
+                    "why": "页面还原是初级前端最核心的工作内容，样式能力直接影响产出质量",
+                    "how_to_verify": "能用 Flexbox/Grid 实现常见布局，处理响应式断点，覆盖第三方组件库样式"
+                  },
+                  {
+                    "skill": "HTTP 和接口对接",
+                    "level": "熟练",
+                    "why": "前后端分离架构下，接口对接是每天必做的工作",
+                    "how_to_verify": "理解 RESTful 规范，能处理 Token 鉴权、跨域（CORS）、接口错误处理、请求拦截等"
+                  },
+                  {
+                    "skill": "组件库使用（Ant Design / Element Plus）",
+                    "level": "熟练",
+                    "why": "企业级项目几乎都基于组件库开发，熟练使用能大幅提升开发效率",
+                    "how_to_verify": "能快速查阅组件库文档，组合使用 Table/Form/Modal 等组件完成复杂业务页面"
+                  }
+                ],
+                "nice_to_have": [
+                  {
+                    "skill": "TypeScript",
+                    "level": "了解",
+                    "why": "大厂和中大型公司越来越倾向使用 TS，掌握 TS 能拓宽求职范围",
+                    "how_to_verify": "能在 React/Vue 项目中使用 TS 编写组件 props 类型和接口类型定义"
+                  },
+                  {
+                    "skill": "前端测试（Jest / Cypress）",
+                    "level": "了解",
+                    "why": "外企和部分大厂对测试覆盖率有要求，但国内大多数公司不强制",
+                    "how_to_verify": "能编写组件渲染测试和简单交互测试"
+                  },
+                  {
+                    "skill": "移动端开发经验（React Native / 小程序）",
+                    "level": "了解",
+                    "why": "很多公司有小程序或 App 内嵌 H5 的需求，有相关经验是加分项",
+                    "how_to_verify": "有至少一个小程序或 H5 移动端项目的开发经验"
+                  }
+                ]
+              },
+              "entry_advice": [
+                {
+                  "action": "不要只看视频教程，一定要动手写项目",
+                  "priority": 1,
+                  "estimated_time": "持续进行",
+                  "resources": ["GitHub 上找 2-3 个 star 较高的实战项目跟着做", "自己从零搭建一个项目而不是用脚手架模板"],
+                  "why": "看视频会有'都会了'的错觉，实际写代码时会发现大量问题。面试中能讲清项目细节比堆砌技术栈更有说服力"
+                },
+                {
+                  "action": "刷前端面试题，建立知识体系",
+                  "priority": 2,
+                  "estimated_time": "2-4 周",
+                  "resources": ["《前端面试之道》", "GitHub 前端面试题汇总仓库", "掘金前端面试专栏"],
+                  "why": "前端面试题覆盖面广且有一定套路，系统准备能显著提高通过率。重点准备 JS 基础、CSS 布局、框架原理、网络知识"
+                },
+                {
+                  "action": "学会使用 Git 并维护一个活跃的 GitHub",
+                  "priority": 3,
+                  "estimated_time": "1 周",
+                  "resources": ["Pro Git 电子书", "GitHub 官方教程", "学习 Git Flow 工作流"],
+                  "why": "GitHub 主页是前端工程师的名片，有持续提交记录的账号比空白账号有说服力得多"
+                },
+                {
+                  "action": "了解前端工程化和部署流程",
+                  "priority": 4,
+                  "estimated_time": "1-2 周",
+                  "resources": ["Vite 官方文档", "学习 Docker 基本概念", "尝试将项目部署到 Vercel"],
+                  "why": "了解代码从开发到上线的完整流程，面试中能体现你的工程化思维，而不是只会写页面"
+                }
+              ],
+              "meta": {
+                "source_type": "ai_synthesized_community",
+                "source_detail": "AI 基于公开社区信息（知乎、V2EX、脉脉等）综合生成的模拟社区整理数据，非真实社区汇总",
+                "contributor": null,
+                "quality_score": 4.2,
+                "review_status": "approved",
+                "data_verification": {
+                  "is_verified": false,
+                  "verified_by": null,
+                  "verified_at": null,
+                  "verification_note": "AI 合成数据，待真实从业者验证后升级为已验证状态"
+                },
+                "created_at": "2026-04-17",
+                "updated_at": "2026-04-17"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_id": "backend",
+      "category_name": "后端开发",
+      "jobs": [
+        {
+          "job_id": "backend-junior-java",
+          "job_title": "初级Java后端开发工程师",
+          "experience_level": "0-2年",
+          "experiences": [
+            {
+              "id": "be_exp_001",
+              "keywords": {
+                "job_titles": ["Java开发", "Java工程师", "后端开发", "后端工程师", "服务端开发", "Java后端", "初级Java开发", "Java实习生"],
+                "tech_stack": ["Java", "Spring Boot", "Spring Cloud", "MySQL", "Redis", "MyBatis", "MyBatis-Plus", "Git"],
+                "skills": ["接口开发", "CRUD开发", "SQL编写", "慢查询优化", "线上问题排查", "接口文档编写", "代码评审", "前后端联调"],
+                "tools": ["Swagger", "Apifox", "ELK", "Prometheus", "Grafana", "Git", "Maven", "IntelliJ IDEA"],
+                "concepts": ["RESTful API", "微服务", "分布式系统", "缓存穿透", "缓存击穿", "数据库索引", "ORM", "三层架构"]
+              },
+              "work_content": {
+                "daily_tasks": [
+                  {
+                    "task": "开发业务接口和 CRUD 功能",
+                    "time_ratio": "45%",
+                    "detail": "根据产品需求文档开发 RESTful API，主要工作是写 Controller/Service/Mapper 三层代码。常见场景包括用户管理、订单处理、数据导出等。大部分工作是基于已有的代码模板和脚手架进行开发。"
+                  },
+                  {
+                    "task": "编写和维护 SQL 语句",
+                    "time_ratio": "20%",
+                    "detail": "日常工作中大量涉及数据库操作，包括编写复杂查询 SQL、优化慢查询、设计表结构（通常由高级工程师主导，初级工程师参与评审）。MyBatis/MyBatis-Plus 是最常用的 ORM 框架。"
+                  },
+                  {
+                    "task": "排查和修复线上问题",
+                    "time_ratio": "15%",
+                    "detail": "通过日志系统（ELK/日志易）和监控平台（Prometheus/Grafana）排查线上报错。常见问题包括 NullPointerException、接口超时、数据库死锁、Redis 缓存击穿等。"
+                  },
+                  {
+                    "task": "编写技术文档和参与评审",
+                    "time_ratio": "10%",
+                    "detail": "编写接口文档（Swagger/Apifox）、技术方案文档、数据库设计文档。参与代码评审（Code Review）和技术方案评审，学习团队的最佳实践。"
+                  },
+                  {
+                    "task": "联调和协助测试",
+                    "time_ratio": "10%",
+                    "detail": "与前端工程师联调接口，确认数据格式和边界情况。协助测试同学复现和定位 Bug，有时需要写数据修复脚本处理线上脏数据。"
+                  }
+                ],
+                "jd_vs_reality": [
+                  {
+                    "jd_says": "参与系统架构设计和高并发方案制定",
+                    "reality": "初级工程师基本不参与架构设计。系统架构、技术选型、中间件选型都是由技术负责人或架构师决定的。初级工程师的工作更多是'在已有架构内填充业务逻辑'。",
+                    "gap_level": "high"
+                  },
+                  {
+                    "jd_says": "负责微服务架构的设计和治理",
+                    "reality": "大部分初级工程师所在的项目虽然用了微服务（Spring Cloud），但主要是按规范调用其他服务的接口，并不需要理解服务注册发现、配置中心、熔断降级的底层原理。能正确使用 Feign 调用和处理超时重试就够了。",
+                    "gap_level": "high"
+                  },
+                  {
+                    "jd_says": "具备分布式系统开发经验",
+                    "reality": "初级阶段对分布式系统的理解停留在'会用'层面，比如用 Redis 做缓存、用 RabbitMQ 发消息、用分布式锁防并发。真正的分布式系统设计（一致性、分区容错）是高级工程师的领域。",
+                    "gap_level": "medium"
+                  }
+                ]
+              },
+              "core_skills": {
+                "must_have": [
+                  {
+                    "skill": "Java 基础（JDK 8+）",
+                    "level": "熟练",
+                    "why": "后端开发的核心语言，面试重点考察集合框架、多线程、JVM 基础、IO 模型等",
+                    "how_to_verify": "能解释 HashMap 原理、线程池参数含义、GC 垃圾回收基本流程，能写出正确的并发代码"
+                  },
+                  {
+                    "skill": "Spring Boot / Spring Cloud",
+                    "level": "熟练",
+                    "why": "Java 后端的标配框架，几乎所有企业级项目都在用，面试和日常工作都绕不开",
+                    "how_to_verify": "能独立用 Spring Boot 搭建一个包含数据库交互、缓存、消息队列的完整服务"
+                  },
+                  {
+                    "skill": "MySQL 数据库",
+                    "level": "熟练",
+                    "why": "关系型数据库是后端开发的基础，SQL 编写和优化能力直接影响系统性能",
+                    "how_to_verify": "能编写复杂联表查询，理解索引原理（B+树），能通过 EXPLAIN 分析慢查询并优化"
+                  },
+                  {
+                    "skill": "Redis",
+                    "level": "熟练",
+                    "why": "缓存是后端高并发场景的核心组件，面试高频考点",
+                    "how_to_verify": "理解 Redis 常见数据结构和使用场景，能处理缓存穿透/击穿/雪崩问题，了解分布式锁的实现"
+                  },
+                  {
+                    "skill": "Git 和 Linux 基本操作",
+                    "level": "熟练",
+                    "why": "代码管理和服务器操作是日常必备技能",
+                    "how_to_verify": "能熟练使用 Git 分支管理，能在 Linux 服务器上查看日志、排查进程、分析问题"
+                  }
+                ],
+                "nice_to_have": [
+                  {
+                    "skill": "消息队列（RabbitMQ / RocketMQ / Kafka）",
+                    "level": "了解",
+                    "why": "异步解耦和削峰填谷是常见需求，了解消息队列有助于理解系统架构",
+                    "how_to_verify": "能实现基本的生产者和消费者逻辑，理解消息确认机制和死信队列"
+                  },
+                  {
+                    "skill": "Docker 和容器化部署",
+                    "level": "了解",
+                    "why": "了解容器化有助于理解部署流程，但初级阶段通常不需要自己写 Dockerfile",
+                    "how_to_verify": "知道 Docker 基本命令（build/run/docker-compose），理解镜像和容器的概念"
+                  },
+                  {
+                    "skill": "MyBatis-Plus",
+                    "level": "熟练",
+                    "why": "国内 Java 项目使用率极高的 ORM 增强工具，能显著减少重复代码",
+                    "how_to_verify": "能使用代码生成器快速搭建 CRUD，理解分页插件、逻辑删除、自动填充等特性"
+                  }
+                ]
+              },
+              "entry_advice": [
+                {
+                  "action": "系统学习 Java 基础和 Spring Boot",
+                  "priority": 1,
+                  "estimated_time": "3-4 个月",
+                  "resources": ["《Java 核心技术卷 I》", "Spring Boot 官方文档", "黑马程序员/尚硅谷 Spring Boot 实战课程", "完成一个电商后台项目"],
+                  "why": "Java 基础决定你的上限，Spring Boot 是找工作的入场券。建议先扎实基础再学框架，不要本末倒置"
+                },
+                {
+                  "action": "掌握 MySQL 和 Redis 的核心知识",
+                  "priority": 2,
+                    "estimated_time": "1-2 个月",
+                  "resources": ["《MySQL 是怎样运行的》", "Redis 官方文档", "LeetCode 数据库题", "小林 coding 图解系列"],
+                  "why": "数据库是后端面试中区分度最高的模块，索引优化和 Redis 应用场景是高频考点"
+                },
+                {
+                  "action": "准备一个完整的 Spring Boot 项目",
+                  "priority": 3,
+                  "estimated_time": "1-2 个月",
+                  "resources": ["GitHub 上的开源电商/博客项目", "跟着项目从 0 到 1 搭建，包含用户认证、权限管理、支付对接等模块"],
+                  "why": "面试中能讲清楚项目架构、技术选型理由、遇到的难点和解决方案，比罗列技术栈有效得多"
+                },
+                {
+                  "action": "刷 Java 后端面试八股文",
+                  "priority": 4,
+                  "estimated_time": "2-3 周",
+                  "resources": ["JavaGuide（GitHub）", "小林 coding", "美团技术团队博客"],
+                  "why": "国内 Java 后端面试有明显的'八股文'特征，系统准备常见面试题能显著提高通过率。重点准备 JVM、并发编程、MySQL、Redis、Spring"
+                }
+              ],
+              "meta": {
+                "source_type": "ai_synthesized_interview",
+                "source_detail": "AI 基于公开社区信息（知乎、V2EX、脉脉等）综合生成的模拟访谈数据，非真实访谈",
+                "contributor": null,
+                "quality_score": 4.6,
+                "review_status": "approved",
+                "data_verification": {
+                  "is_verified": false,
+                  "verified_by": null,
+                  "verified_at": null,
+                  "verification_note": "AI 合成数据，待真实从业者验证后升级为已验证状态"
+                },
+                "created_at": "2026-04-17",
+                "updated_at": "2026-04-17"
+              }
+            },
+            {
+              "id": "be_exp_002",
+              "keywords": {
+                "job_titles": ["Java开发", "Java工程师", "后端开发", "后端工程师", "服务端开发", "Java后端", "服务端工程师", "后端研发"],
+                "tech_stack": ["Java", "Spring Boot", "Spring Cloud", "MySQL", "Redis", "MyBatis-Plus", "XXL-JOB", "JUnit"],
+                "skills": ["系统维护", "定时任务开发", "需求评审", "线上值班", "故障响应", "单元测试", "业务建模", "数据修复"],
+                "tools": ["Jira", "飞书", "ELK", "Prometheus", "Grafana", "Git", "JUnit", "Mockito"],
+                "concepts": ["微服务架构", "服务注册发现", "熔断降级", "OOM", "数据库连接池", "领域建模", "设计模式", "DevOps"]
+              },
+              "work_content": {
+                "daily_tasks": [
+                  {
+                    "task": "维护和迭代现有业务系统",
+                    "time_ratio": "40%",
+                    "detail": "初级 Java 后端大量时间花在维护已有系统上，包括修 Bug、加字段、改接口逻辑、适配新需求。这些系统通常代码质量参差不齐，需要耐心阅读和理解老代码。"
+                  },
+                  {
+                    "task": "编写定时任务和数据同步脚本",
+                    "time_ratio": "15%",
+                    "detail": "使用 XXL-JOB 或 Spring @Scheduled 编写定时任务，常见场景包括数据同步、报表生成、过期数据清理、对账等。这部分工作逻辑不复杂但需要仔细处理边界情况。"
+                  },
+                  {
+                    "task": "参与需求评审和技术方案设计",
+                    "time_ratio": "10%",
+                    "detail": "参加产品需求评审会，理解业务背景和需求细节。初级工程师通常负责编写技术方案中的'接口设计'和'数据库变更'部分，整体方案由高级工程师把控。"
+                  },
+                  {
+                    "task": "线上值班和故障响应",
+                    "time_ratio": "15%",
+                    "detail": "轮流参与线上值班，处理告警和用户反馈的线上问题。需要熟悉日志查询工具和监控平台，能在压力下快速定位问题。常见问题包括 OOM、数据库连接池耗尽、接口超时等。"
+                  },
+                  {
+                    "task": "编写单元测试和参与代码评审",
+                    "time_ratio": "10%",
+                    "detail": "使用 JUnit + Mockito 编写 Service 层单元测试。部分公司对测试覆盖率有硬性要求（如核心逻辑 80% 以上）。Code Review 中学习高级工程师的代码风格和设计模式。"
+                  },
+                  {
+                    "task": "学习业务知识和领域建模",
+                    "time_ratio": "10%",
+                    "detail": "后端开发需要深入理解业务领域，比如电商的订单流转、支付对账、库存扣减等。初级工程师需要花大量时间学习业务知识，这往往比纯技术学习更耗时。"
+                  }
+                ],
+                "jd_vs_reality": [
+                  {
+                    "jd_says": "参与核心系统的设计和开发，推动技术创新",
+                    "reality": "初级工程师很少接触核心系统，通常被分配到边缘业务或内部工具。技术创新更是遥不可及，大部分时间在做重复性的 CRUD 开发。想要接触核心系统需要先证明自己的能力。",
+                    "gap_level": "high"
+                  },
+                  {
+                    "jd_says": "良好的沟通能力和团队协作精神",
+                    "reality": "JD 里一句话带过的'沟通能力'，实际上占据了大量工作时间。需要和产品经理扯需求边界、和前端对接口字段、和测试确认用例、和 DBA 申请数据库变更。沟通成本可能占到你 30% 的工作时间。",
+                    "gap_level": "medium"
+                  },
+                  {
+                    "jd_says": "熟悉 DevOps 流程，参与 CI/CD 建设",
+                    "reality": "CI/CD 流程通常是运维或 SRE 团队负责的，后端开发只需要会触发构建和查看部署状态。初级工程师很少需要写 Jenkins Pipeline 或 Docker Compose 配置。",
+                    "gap_level": "low"
+                  }
+                ]
+              },
+              "core_skills": {
+                "must_have": [
+                  {
+                    "skill": "Java 编程基础",
+                    "level": "熟练",
+                    "why": "Java 后端的安身立命之本，面试考察深度远超日常使用",
+                    "how_to_verify": "能流利回答集合框架源码、并发编程（synchronized/volatile/线程池）、JVM 内存模型和 GC 等问题"
+                  },
+                  {
+                    "skill": "Spring 生态（Boot + Cloud）",
+                    "level": "熟练",
+                    "why": "国内 Java 后端事实标准，不会 Spring 基本找不到工作",
+                    "how_to_verify": "理解 IoC/AOP 原理，能说清 Bean 生命周期，会使用 Spring Cloud 常用组件（Nacos/Feign/Sentinel/Gateway）"
+                  },
+                  {
+                    "skill": "MySQL 数据库设计与优化",
+                    "level": "熟练",
+                    "why": "数据存储是后端系统的核心，SQL 能力直接影响系统性能和稳定性",
+                    "how_to_verify": "能设计合理的表结构和索引，通过 EXPLAIN 分析执行计划，处理慢查询优化"
+                  },
+                  {
+                    "skill": "Redis 缓存应用",
+                    "level": "熟练",
+                    "why": "高并发场景必备组件，面试必问缓存相关问题",
+                    "how_to_verify": "能正确使用 Redis 五大数据结构，处理缓存一致性、穿透/击穿/雪崩，实现简单的分布式锁"
+                  },
+                  {
+                    "skill": "RESTful API 设计",
+                    "level": "熟练",
+                    "why": "前后端分离架构下，接口设计是后端工程师的基本功",
+                    "how_to_verify": "能设计规范的 API（URL 命名、HTTP 方法、状态码、统一响应格式），编写清晰的接口文档"
+                  }
+                ],
+                "nice_to_have": [
+                  {
+                    "skill": "消息队列（RocketMQ/Kafka）",
+                    "level": "了解",
+                    "why": "异步解耦是复杂系统的标配，了解消息队列有助于理解系统设计",
+                    "how_to_verify": "能实现基本的生产消费逻辑，理解消息丢失、重复消费等问题的解决方案"
+                  },
+                  {
+                    "skill": "Elasticsearch",
+                    "level": "了解",
+                    "why": "搜索和日志分析场景常用，有使用经验是加分项",
+                    "how_to_verify": "能编写基本的 DSL 查询，理解倒排索引原理"
+                  },
+                  {
+                    "skill": "设计模式",
+                    "level": "了解",
+                    "why": "阅读老代码和参与 Code Review 时经常遇到，理解常见模式有助于写出更优雅的代码",
+                    "how_to_verify": "能识别代码中的单例、工厂、策略、观察者等模式，知道它们的使用场景"
+                  }
+                ]
+              },
+              "entry_advice": [
+                {
+                  "action": "Java 基础和 JVM 是核心竞争力，不要只学框架",
+                  "priority": 1,
+                  "estimated_time": "2-3 个月",
+                  "resources": ["《深入理解 Java 虚拟机》（周志明）", "JavaGuide 面试指南", "美团技术博客 JVM 系列"],
+                  "why": "只会用 Spring Boot 写 CRUD 的人太多了，JVM 和并发编程是拉开差距的关键。面试中这些知识点能体现你的技术深度"
+                },
+                {
+                  "action": "一定要有能拿得出手的项目经历",
+                  "priority": 2,
+                  "estimated_time": "1-2 个月",
+                  "resources": ["GitHub 热门 Java 开源项目（如 mall、eladmin）", "自己动手实现一个简化版电商系统"],
+                  "why": "面试官更看重你做了什么而不是学了什么。有完整项目经历（包含技术难点和解决方案）的候选人通过率高很多"
+                },
+                {
+                  "action": "重视 SQL 能力，这是最容易拉开差距的技能",
+                  "priority": 3,
+                  "estimated_time": "2-4 周",
+                  "resources": ["LeetCode 数据库题（简单+中等）", "《SQL 必知必会》", "实际项目中练习复杂查询"],
+                  "why": "很多候选人 SQL 写得很差，如果你能熟练编写复杂查询并优化慢查询，在面试和实际工作中都是明显优势"
+                },
+                {
+                  "action": "了解业务领域知识，不要只做'技术人'",
+                  "priority": 4,
+                  "estimated_time": "持续学习",
+                  "resources": ["阅读所在行业的业务相关书籍/文章", "和产品经理多交流了解业务背景", "画业务流程图帮助理解"],
+                  "why": "后端开发本质上是'用技术解决业务问题'，理解业务才能写出合理的代码。面试中能结合业务场景讨论技术方案是加分项"
+                }
+              ],
+              "meta": {
+                "source_type": "ai_synthesized_community",
+                "source_detail": "AI 基于公开社区信息（知乎、V2EX、脉脉等）综合生成的模拟社区整理数据，非真实社区汇总",
+                "contributor": null,
+                "quality_score": 4.3,
+                "review_status": "approved",
+                "data_verification": {
+                  "is_verified": false,
+                  "verified_by": null,
+                  "verified_at": null,
+                  "verification_note": "AI 合成数据，待真实从业者验证后升级为已验证状态"
+                },
+                "created_at": "2026-04-17",
+                "updated_at": "2026-04-17"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

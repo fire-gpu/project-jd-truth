@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "解读历史",
+  "navigationBarBackgroundColor": "#FF2D55",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

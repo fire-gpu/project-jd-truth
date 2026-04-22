@@ -1,0 +1,72 @@
+<!--
+  JD 说真话 - 报告页（解读报告展示）
+  布局：报告内容区 → 反馈评分区
+-->
+
+<view class="page-container">
+
+  <!-- 加载状态 -->
+  <view class="loading-container" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">报告生成中，请稍候...</text>
+  </view>
+
+  <!-- 加载失败 -->
+  <view class="empty-container" wx:elif="{{loadError}}">
+    <text class="empty-icon">!</text>
+    <text class="empty-text">{{loadError}}</text>
+    <button class="btn-primary retry-btn" bindtap="onReParse">重新解读</button>
+  </view>
+
+  <!-- 报告内容 -->
+  <block wx:else>
+
+    <!-- 报告标题区 -->
+    <view class="report-header">
+      <text class="report-title">解读报告</text>
+      <text class="report-time" wx:if="{{report.createdAt}}">{{report.createdAt}}</text>
+    </view>
+
+    <!-- 核心维度 -->
+    <view wx:if="{{coreHtml}}" class="report-section-group">
+      <view class="group-label group-label-core">核心维度</view>
+      <rich-text nodes="{{coreHtml}}" class="rich-text-content"></rich-text>
+    </view>
+
+    <!-- 扩展维度 -->
+    <view wx:if="{{extendedHtml}}" class="report-section-group">
+      <view class="group-label group-label-extended">扩展维度</view>
+      <rich-text nodes="{{extendedHtml}}" class="rich-text-content"></rich-text>
+    </view>
+
+    <!-- 个性化维度 -->
+    <view wx:if="{{personalHtml}}" class="report-section-group">
+      <view class="group-label group-label-personal">个性化分析</view>
+      <rich-text nodes="{{personalHtml}}" class="rich-text-content"></rich-text>
+    </view>
+
+    <!-- 数据来源声明 -->
+    <view class="source-notice">
+      <text class="source-text">以上解读基于 AI 分析和从业者真实经验，仅供参考。实际工作内容可能因公司、团队而异。</text>
+    </view>
+
+    <!-- 分割线 -->
+  </block>
+
+  <!-- 底部悬浮操作栏 -->
+  <view class="bottom-bar" wx:if="{{!loading}}">
+    <view class="bottom-bar-item" bindtap="onCopyReport">
+      <text class="bottom-bar-icon">📋</text>
+      <text>复制全文</text>
+    </view>
+    <button class="bottom-bar-item" open-type="share">
+      <text class="bottom-bar-icon">🔗</text>
+      <text>分享</text>
+    </button>
+    <view class="bottom-bar-item bottom-bar-primary" bindtap="onNewParse">
+      <text class="bottom-bar-icon">🔄</text>
+      <text>继续解读</text>
+    </view>
+  </view>
+
+</view>

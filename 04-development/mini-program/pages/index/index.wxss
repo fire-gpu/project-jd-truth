@@ -1,0 +1,260 @@
+/**
+ * JD 说真话 - 首页样式
+ */
+
+/* ==================== 顶部 Logo 区域 ==================== */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx 0 40rpx;
+  background: linear-gradient(135deg, #FF2D55, #FF6B81);
+  margin: -32rpx -32rpx 0 -32rpx;
+  padding: 64rpx 32rpx 56rpx;
+  border-radius: 0 0 40rpx 40rpx;
+}
+
+.logo-area {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16rpx;
+}
+
+.logo-text {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 4rpx;
+}
+
+.logo-suffix {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 4rpx;
+}
+
+.slogan {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 2rpx;
+}
+
+/* ==================== 卡片通用样式 ==================== */
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+}
+
+.card-required {
+  color: #FF2D55;
+  font-size: 30rpx;
+  margin-left: 8rpx;
+}
+
+.card-optional {
+  font-size: 24rpx;
+  color: #8888A0;
+  margin-left: 8rpx;
+}
+
+/* ==================== JD 输入区 ==================== */
+
+.jd-card {
+  margin-top: 16rpx;
+}
+
+/* JD 输入容器，支持粘贴按钮绝对定位 */
+.jd-input-wrapper {
+  position: relative;
+}
+
+/* 粘贴按钮 */
+.paste-btn {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  padding: 6rpx 24rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #FF8FA3;
+  border-radius: 32rpx;
+  font-size: 24rpx;
+  color: #FF8FA3;
+  line-height: 1.5;
+  z-index: 10;
+}
+
+.paste-btn:active {
+  opacity: 0.7;
+}
+
+.jd-input {
+  width: 100%;
+  min-height: 360rpx;
+  padding: 20rpx;
+  background-color: #FFF8FA;
+  border: 2rpx solid #FFE0E8;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #333348;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+
+.jd-input:focus {
+  border-color: #FF2D55;
+}
+
+.input-placeholder {
+  color: #C0C0D0;
+  font-size: 28rpx;
+}
+
+.input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12rpx;
+}
+
+.input-hint {
+  font-size: 22rpx;
+  color: #C0C0D0;
+}
+
+.input-count {
+  font-size: 22rpx;
+  color: #C0C0D0;
+}
+
+.count-warn {
+  color: #FF2D55;
+}
+
+/* ==================== 用户背景输入区 ==================== */
+
+.bg-input {
+  width: 100%;
+  min-height: 120rpx;
+  padding: 20rpx;
+  background-color: #FFF8FA;
+  border: 2rpx solid #FFE0E8;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #333348;
+  line-height: 1.7;
+  box-sizing: border-box;
+}
+
+.bg-input:focus {
+  border-color: #FF2D55;
+}
+
+/* ==================== 岗位类别选择 ==================== */
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.category-tag {
+  padding: 14rpx 28rpx;
+  background-color: #FFF8FA;
+  border: 2rpx solid #E8E0E4;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #666680;
+  transition: all 0.2s ease;
+}
+
+.tag-active {
+  background-color: #FF2D55;
+  border-color: #FF2D55;
+  color: #FFFFFF;
+}
+
+/* ==================== 提交按钮 ==================== */
+
+.submit-btn {
+  margin-top: 40rpx;
+  border-radius: 48rpx;
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* ==================== 底部提示 ==================== */
+
+.footer-tip {
+  display: flex;
+  justify-content: center;
+  padding: 40rpx 0 32rpx;
+}
+
+.footer-tip-text {
+  font-size: 22rpx;
+  color: #C0C0D0;
+}
+
+/* ==================== AI 解读中遮罩 ==================== */
+
+.ai-loading-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.ai-loading-card {
+  background: #1A1A2E;
+  border-radius: 24rpx;
+  padding: 60rpx 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8rpx 40rpx rgba(0, 0, 0, 0.3);
+}
+
+.ai-loading-spinner {
+  width: 64rpx;
+  height: 64rpx;
+  border: 6rpx solid rgba(255, 160, 60, 0.2);
+  border-top-color: #FFA03C;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 32rpx;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.ai-loading-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFA03C;
+  margin-bottom: 12rpx;
+}
+
+.ai-loading-sub {
+  font-size: 24rpx;
+  color: #8888A0;
+}

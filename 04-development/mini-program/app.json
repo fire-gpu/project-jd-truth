@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/report/report",
+    "pages/history/history"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FF2D55",
+    "navigationBarTitleText": "JD 说真话",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#FFF8FA",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8888A0",
+    "selectedColor": "#FF2D55",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "解读",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史",
+        "iconPath": "images/tab-history.png",
+        "selectedIconPath": "images/tab-history-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

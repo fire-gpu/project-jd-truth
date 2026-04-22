@@ -1,0 +1,104 @@
+<!--
+  JD 说真话 - 首页（JD 输入页）
+  布局：Logo区 → JD输入 → 用户背景 → 岗位类别 → 提交按钮
+-->
+
+<view class="page-container">
+
+  <!-- 顶部 Logo 和介绍 -->
+  <view class="header">
+    <view class="logo-area">
+      <text class="logo-text">JD</text>
+      <text class="logo-suffix">说真话</text>
+    </view>
+    <text class="slogan">让每一份 JD 都说真话</text>
+  </view>
+
+  <!-- JD 文本输入区 -->
+  <view class="card jd-card jd-input-wrapper">
+    <view class="card-header">
+      <text class="card-title">招聘 JD 内容</text>
+      <text class="card-required">*</text>
+      <!-- 粘贴按钮 -->
+      <view class="paste-btn" bindtap="onPaste">
+        <text>粘贴</text>
+      </view>
+    </view>
+    <textarea
+      class="jd-input"
+      placeholder="粘贴招聘 JD 内容..."
+      placeholder-class="input-placeholder"
+      maxlength="-1"
+      auto-height="{{false}}"
+      value="{{jdText}}"
+      bindinput="onJdInput"
+    />
+    <view class="input-footer">
+      <text class="input-hint">至少输入 {{minJdLength}} 个字</text>
+      <text class="input-count {{jdTextLength < minJdLength ? 'count-warn' : ''}}">{{jdTextLength}} 字</text>
+    </view>
+  </view>
+
+  <!-- 用户背景输入区（选填） -->
+  <view class="card bg-card">
+    <view class="card-header">
+      <text class="card-title">你的背景</text>
+      <text class="card-optional">（选填）</text>
+    </view>
+    <textarea
+      class="bg-input"
+      placeholder="简单介绍你的背景，如：二本毕业，自学了 Vue，没有实习经验"
+      placeholder-class="input-placeholder"
+      maxlength="{{maxBgLength}}"
+      auto-height="{{true}}"
+      value="{{userBackground}}"
+      bindinput="onBgInput"
+    />
+    <view class="input-footer">
+      <text class="input-hint">填写背景可获得个性化差距分析</text>
+      <text class="input-count">{{bgTextLength}}/{{maxBgLength}}</text>
+    </view>
+  </view>
+
+  <!-- 岗位类别选择 -->
+  <view class="card category-card">
+    <view class="card-header">
+      <text class="card-title">岗位类别</text>
+    </view>
+    <view class="category-list">
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="category-tag {{selectedCategory === item.id ? 'tag-active' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onSelectCategory"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <!-- AI 解读中遮罩 -->
+  <view class="ai-loading-mask" wx:if="{{submitting}}">
+    <view class="ai-loading-card">
+      <view class="ai-loading-spinner"></view>
+      <text class="ai-loading-text">AI 正在解读中</text>
+      <text class="ai-loading-sub">深度分析需要一点时间，请耐心等待</text>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <button
+    class="btn-primary submit-btn {{submitting ? 'disabled' : ''}}"
+    bindtap="onSubmit"
+    disabled="{{submitting}}"
+  >
+    {{submitting ? '解读中...' : '开始解读'}}
+  </button>
+
+  <!-- 底部提示 -->
+  <view class="footer-tip">
+    <text class="footer-tip-text">你的 JD 内容仅用于本次解读，不会存储或分享</text>
+  </view>
+
+</view>

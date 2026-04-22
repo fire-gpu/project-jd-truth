@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "total": 8,
+    "passed": 7,
+    "failed": 1,
+    "warnings": 1
+  },
+  "cases": [
+    {
+      "name": "用例1：空JD",
+      "input": "{\"jdText\": \"\", \"jobCategory\": \"frontend\"}",
+      "expected": "400 错误，jdText 不能为空",
+      "actual_status": 400,
+      "actual_body": "{\"success\":false,\"error\":{\"message\":\"jdText 不能为空，请提供招聘 JD 文本\"}}",
+      "passed": true,
+      "issue": null
+    },
+    {
+      "name": "用例2：超长JD（10001字）",
+      "input": "{\"jdText\": \"(10001字符的重复文本)\", \"jobCategory\": \"frontend\"}",
+      "expected": "400 错误，JD 文本过长",
+      "actual_status": 400,
+      "actual_body": "{\"success\":false,\"error\":{\"message\":\"JD 文本过长，请控制在 10000 字以内\"}}",
+      "passed": true,
+      "issue": null
+    },
+    {
+      "name": "用例3：特殊字符JD（XSS + 模板注入）",
+      "input": "包含 script 标签、模板表达式、constructor 链的 JD 文本",
+      "expected": "成功返回报告，特殊字符被清洗或转义，不执行脚本",
+      "actual_status": 200,
+      "actual_body": "成功返回 2007 字报告。XSS payload 未被输出，模板表达式 ${7*7} 未被求值，constructor 链未被执行。但 AI 在 JD 潜台词分析中引用了原始注入文本。",
+      "passed": true,
+      "issue": "WARNING: AI 在报告中引用了原始恶意文本作为 JD 潜台词分析内容。虽然脚本未被执行，但恶意文本以引用形式出现在报告中。建议在 _sanitizeInput 中对 script 标签和模板注入语法做更彻底的清洗，或在 AI 输出后做二次过滤。"
+    },
+    {
+      "name": "用例4：无背景信息",
+      "input": "{\"jdText\": \"招聘前端工程师，要求熟悉Vue框架，1-3年经验\", \"jobCategory\": \"frontend\"}",
+      "expected": "成功，且报告中不包含差距分析维度",
+      "actual_status": 200,
+      "actual_body": "成功返回 2481 字报告。报告中包含 八、差距分析 章节，但内容为 由于用户未提供背景信息，无法进行差距分析。",
+      "passed": false,
+      "issue": "AI 模式下 prompt 模板要求输出差距分析维度，AI 遵循模板输出了该章节但正确标注了无法分析。严格来说不包含差距分析维度的预期未满足（章节标题存在），但功能上是合理的降级处理。建议优化 prompt 模板，在无背景信息时跳过该章节的输出指令。"
+    },
+    {
+      "name": "用例5：无效岗位类别",
+      "input": "{\"jdText\": \"招聘前端工程师\", \"jobCategory\": \"invalid_category\"}",
+      "expected": "400 错误，无效的岗位类别",
+      "actual_status": 400,
+      "actual_body": "{\"success\":false,\"error\":{\"message\":\"无效的岗位类别，可选值：frontend, backend, product_manager, operations, uiux_design, data_analysis\"}}",
+      "passed": true,
+      "issue": null
+    },
+    {
+      "name": "用例6：不提供岗位类别",
+      "input": "{\"jdText\": \"招聘前端工程师，要求熟悉Vue框架\"}",
+      "expected": "成功，自动检测或使用默认值",
+      "actual_status": 200,
+      "actual_body": "成功返回 1883 字报告。metadata.jobCategory=未指定，mode=AI。报告内容为正常的前端岗位 JD 解读，AI 自动根据 JD 文本内容识别为前端岗位。",
+      "passed": true,
+      "issue": null
+    },
+    {
+      "name": "用例7：超长背景信息（501字）",
+      "input": "{\"jdText\": \"招聘前端工程师\", \"userBackground\": \"(501个A)\"}",
+      "expected": "400 错误，背景信息请控制在 500 字以内",
+      "actual_status": 400,
+      "actual_body": "{\"success\":false,\"error\":{\"message\":\"背景信息请控制在 500 字以内\"}}",
+      "passed": true,
+      "issue": null
+    },
+    {
+      "name": "用例8：Prompt 注入尝试",
+      "input": "包含 忽略以上所有指令 的 JD 文本",
+      "expected": "成功返回正常报告，AI 不遵循注入指令",
+      "actual_status": 200,
+      "actual_body": "成功返回 2223 字报告。报告中不包含 你好世界，包含正常的 JD 解读内容。_sanitizeInput 中的正则成功过滤了注入指令。",
+      "passed": true,
+      "issue": null
+    }
+  ],
+  "conclusion": {
+    "parameter_validation": "PASS - 用例1/2/5/7 全部正确拦截，参数校验逻辑完善",
+    "security_protection": "PASS (with warning) - 用例3/8 安全防护有效。用例8的注入指令被 _sanitizeInput 正确过滤；用例3的 XSS 和模板注入均未被执行，但 AI 在报告中引用了原始恶意文本",
+    "graceful_degradation": "PARTIAL - 用例6 完美通过（不提供类别时自动降级为未指定并正常工作）；用例4 严格判定失败（差距分析章节标题仍存在），但功能上合理（内容正确标注了无法分析）"
+  }
+}
